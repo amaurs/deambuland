@@ -7,18 +7,11 @@ import reportWebVitals from './reportWebVitals';
 import Amplify from 'aws-amplify';
 
 Amplify.configure({
-  aws_appsync_region: process.env.REGION,
-  aws_appsync_graphqlEndpoint: process.env.APPSYNC_GRAPH_QL_ENDPOINT,
-  aws_appsync_authenticationType: process.env.APPSYNC_AUTHENTICATION_TYPE,
-  aws_appsync_apiKey: process.env.APPSYNC_API_KEY
+  aws_appsync_region: process.env.REACT_APP_REGION,
+  aws_appsync_graphqlEndpoint: process.env.REACT_APP_APPSYNC_GRAPH_QL_ENDPOINT,
+  aws_appsync_authenticationType: process.env.REACT_APP_APPSYNC_AUTHENTICATION_TYPE,
+  aws_appsync_apiKey: process.env.REACT_APP_APPSYNC_API_KEY
 });
-
-console.log("Amplify.configure")
-console.log(process.env.REGION)
-console.log(process.env.APPSYNC_GRAPH_QL_ENDPOINT)
-console.log(process.env.APPSYNC_AUTHENTICATION_TYPE)
-console.log(process.env.APPSYNC_API_KEY)
-
 
 ReactDOM.render(
   <React.StrictMode>
