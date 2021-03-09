@@ -1,4 +1,10 @@
 version: 1
+env:
+  variables:
+      APPSYNC_API_KEY: $APPSYNC_API_KEY
+      APPSYNC_AUTHENTICATION_TYPE: $APPSYNC_AUTHENTICATION_TYPE
+      APPSYNC_GRAPH_QL_ENDPOINT: $APPSYNC_GRAPH_QL_ENDPOINT
+      REGION: $REGION
 frontend:
   phases:
     preBuild:
@@ -6,10 +12,6 @@ frontend:
         - npm ci
     build:
       commands:
-        - APPSYNC_API_KEY=$APPSYNC_API_KEY
-        - APPSYNC_AUTHENTICATION_TYPE=$APPSYNC_AUTHENTICATION_TYPE
-        - APPSYNC_GRAPH_QL_ENDPOINT=$APPSYNC_GRAPH_QL_ENDPOINT
-        - REGION=$REGION
         - npm run build
   artifacts:
     baseDirectory: build
