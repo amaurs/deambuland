@@ -4,6 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import Amplify from 'aws-amplify';
+
+Amplify.configure({
+  aws_appsync_region: process.env.REGION,
+  aws_appsync_graphqlEndpoint:  process.env.APPSYNC_GRAPH_QL_ENDPOINT,
+  aws_appsync_authenticationType: process.env.APPSYNC_AUTHENTICATION_TYPE,
+  aws_appsync_apiKey: process.env.APPSYNC_API_KEY
+});
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
