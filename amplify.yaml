@@ -12,6 +12,8 @@ frontend:
         - npm ci
     build:
       commands:
+        - echo "REACT_APP_REGION:$REGION"
+        - echo "$REACT_APP_REGION"
         - npm run build
   artifacts:
     baseDirectory: build
