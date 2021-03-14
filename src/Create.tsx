@@ -3,6 +3,7 @@ import { API, graphqlOperation } from 'aws-amplify'
 import { CreateEasterEggMutation, CreateEasterEggMutationVariables, EasterEggInput } from './API'
 import { createEasterEgg } from './graphql/mutations'
 import { useParams, useNavigate } from 'react-router-dom'
+import { withAuthenticator } from '@aws-amplify/ui-react'
 
 interface State {
     name: string;
@@ -11,7 +12,7 @@ interface State {
     longitude: number;
 }
 
-export default function Create(props: any) {
+function Create(props: any) {
     let navigate = useNavigate();
     let [state, setState] = useState<State>({ description: "Write a description.",
                                               name: "",
@@ -74,3 +75,5 @@ export default function Create(props: any) {
             </form>)
 
 }
+
+export default withAuthenticator(Create);

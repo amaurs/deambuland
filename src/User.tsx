@@ -4,10 +4,10 @@ import { useParams } from 'react-router-dom'
 import { GraphQLResult } from "@aws-amplify/api";
 import { ListEasterEggsQuery, ListEasterEggsQueryVariables } from './API'
 import { listEasterEggs } from './graphql/queries'
-
 import { Link } from 'react-router-dom'
+import { withAuthenticator } from '@aws-amplify/ui-react'
 
-export default function User(props: any) {
+function User(props: any) {
 
     let [data, setData] = useState<ListEasterEggsQuery | undefined>(undefined);
     let { user } = useParams();
@@ -38,3 +38,5 @@ export default function User(props: any) {
 
 
 }
+
+export default withAuthenticator(User);

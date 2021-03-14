@@ -9,6 +9,8 @@ import Post from './Post'
 import Create from './Create'
 import { API } from 'aws-amplify'
 
+
+
 function App() {
 
   return (
@@ -18,7 +20,6 @@ function App() {
             <Route path="/:user/create" element={<Create />} />
             <Route path="/:user" element={<User />} />
             <Route path="/:user/:easterEgg" element={<Post />} />
-
         </Routes>
     </Router>
   );

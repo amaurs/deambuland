@@ -5,22 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import Amplify, { Auth } from 'aws-amplify';
+import awsconfig from './aws-exports';
 
-Amplify.configure({
-  aws_appsync_region: process.env.REACT_APP_REGION,
-  aws_appsync_graphqlEndpoint: process.env.REACT_APP_APPSYNC_GRAPH_QL_ENDPOINT,
-  aws_appsync_authenticationType: process.env.REACT_APP_APPSYNC_AUTHENTICATION_TYPE,
-  aws_appsync_apiKey: process.env.REACT_APP_APPSYNC_API_KEY
-});
+console.log(awsconfig)
 
-Amplify.configure({
-  API: {
-    graphql_headers: async () => {
-        const currentSession = await Auth.currentSession();
-        return { Authorization: currentSession.getIdToken().getJwtToken() }
-        }
-  }
-});
+Amplify.configure(awsconfig);
+Auth.configure(awsconfig);
+
 
 ReactDOM.render(
   <React.StrictMode>
