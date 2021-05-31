@@ -26,6 +26,7 @@ export default function Post(props: any) {
         return  <div>
                     <h1>{data?.getEasterEggById?.name}</h1>
                     <p>{data?.getEasterEggById?.description}</p>
+                    <img src={data?.getEasterEggById?.imageUrl}/>
                 </div>
     } else {
         return <h1>Loading...</h1>
