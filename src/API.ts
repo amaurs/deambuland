@@ -3,31 +3,30 @@
 //  This file was automatically generated and should not be edited.
 
 export type EasterEggInput = {
-  id: string,
-  authorId: string,
   description: string,
   name: string,
   latitude: number,
   longitude: number,
+  imageUrl: string,
 };
 
 export type EasterEgg = {
   __typename: "EasterEgg",
   id?: string,
-  authorId?: string,
   description?: string,
   name?: string,
   latitude?: number,
   longitude?: number,
+  imageUrl?: string,
 };
 
 export type UpdateEasterEggInput = {
   id: string,
-  authorId: string,
   description?: string | null,
   name?: string | null,
   latitude?: number | null,
   longitude?: number | null,
+  imageUrl?: string | null,
 };
 
 export type CreateEasterEggMutationVariables = {
@@ -38,11 +37,11 @@ export type CreateEasterEggMutation = {
   createEasterEgg?:  {
     __typename: "EasterEgg",
     id: string,
-    authorId: string,
     description: string,
     name: string,
     latitude: number,
     longitude: number,
+    imageUrl: string,
   } | null,
 };
 
@@ -54,17 +53,16 @@ export type UpdateEasterEggMutation = {
   updateEasterEgg?:  {
     __typename: "EasterEgg",
     id: string,
-    authorId: string,
     description: string,
     name: string,
     latitude: number,
     longitude: number,
+    imageUrl: string,
   } | null,
 };
 
 export type DeleteEasterEggMutationVariables = {
   easterEggId?: string,
-  authorId?: string,
 };
 
 export type DeleteEasterEggMutation = {
@@ -73,33 +71,28 @@ export type DeleteEasterEggMutation = {
 
 export type GetEasterEggByIdQueryVariables = {
   easterEggId?: string,
-  authorId?: string,
 };
 
 export type GetEasterEggByIdQuery = {
   getEasterEggById?:  {
     __typename: "EasterEgg",
     id: string,
-    authorId: string,
     description: string,
     name: string,
     latitude: number,
     longitude: number,
+    imageUrl: string,
   } | null,
-};
-
-export type ListEasterEggsQueryVariables = {
-  authorId?: string,
 };
 
 export type ListEasterEggsQuery = {
   listEasterEggs?:  Array< {
     __typename: "EasterEgg",
     id: string,
-    authorId: string,
     description: string,
     name: string,
     latitude: number,
     longitude: number,
+    imageUrl: string,
   } | null > | null,
 };

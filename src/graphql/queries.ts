@@ -3,26 +3,26 @@
 // this is an auto generated file. This will be overwritten
 
 export const getEasterEggById = /* GraphQL */ `
-  query GetEasterEggById($easterEggId: String!, $authorId: String!) {
-    getEasterEggById(easterEggId: $easterEggId, authorId: $authorId) {
+  query GetEasterEggById($easterEggId: String!) {
+    getEasterEggById(easterEggId: $easterEggId) {
       id
-      authorId
       description
       name
       latitude
       longitude
+      imageUrl
     }
   }
 `;
 export const listEasterEggs = /* GraphQL */ `
-  query ListEasterEggs($authorId: String!) {
-    listEasterEggs(authorId: $authorId) {
+  query ListEasterEggs {
+    listEasterEggs {
       id
-      authorId
       description
       name
       latitude
       longitude
+      imageUrl
     }
   }
 `;

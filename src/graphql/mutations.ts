@@ -6,11 +6,11 @@ export const createEasterEgg = /* GraphQL */ `
   mutation CreateEasterEgg($easterEgg: EasterEggInput!) {
     createEasterEgg(easterEgg: $easterEgg) {
       id
-      authorId
       description
       name
       latitude
       longitude
+      imageUrl
     }
   }
 `;
@@ -18,16 +18,16 @@ export const updateEasterEgg = /* GraphQL */ `
   mutation UpdateEasterEgg($easterEgg: UpdateEasterEggInput!) {
     updateEasterEgg(easterEgg: $easterEgg) {
       id
-      authorId
       description
       name
       latitude
       longitude
+      imageUrl
     }
   }
 `;
 export const deleteEasterEgg = /* GraphQL */ `
-  mutation DeleteEasterEgg($easterEggId: String!, $authorId: String!) {
-    deleteEasterEgg(easterEggId: $easterEggId, authorId: $authorId)
+  mutation DeleteEasterEgg($easterEggId: String!) {
+    deleteEasterEgg(easterEggId: $easterEggId)
   }
 `;

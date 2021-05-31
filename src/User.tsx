@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import { API, graphqlOperation } from 'aws-amplify'
 import { useParams } from 'react-router-dom'
 import { GraphQLResult } from "@aws-amplify/api";
-import { ListEasterEggsQuery, ListEasterEggsQueryVariables } from './API'
+import { ListEasterEggsQuery } from './API'
 import { listEasterEggs } from './graphql/queries'
 import { Link } from 'react-router-dom'
-import { withAuthenticator } from '@aws-amplify/ui-react'
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+import { fromIdToUrl } from './util'
 
 function User(props: any) {
 
@@ -14,24 +15,26 @@ function User(props: any) {
 
     useEffect(() => {
         async function fetchEasterEggs(){
-            console.log(user)
-            const variables: ListEasterEggsQueryVariables = { authorId: user };
-
-            console.log(variables);
-            const response = (await API.graphql(graphqlOperation(listEasterEggs, variables))) as { data: ListEasterEggsQuery; };
+            console.log(user);
+            const response = (await API.graphql(graphqlOperation(listEasterEggs))) as { data: ListEasterEggsQuery; };
             setData(response.data);
         }
         fetchEasterEggs();
     }, [])
 
     if (data !== undefined) {
-        return <ul>{data?.listEasterEggs?.map((element, index) => {
+        return <Fragment>
+                <AmplifySignOut button-text="Custom Text"></AmplifySignOut>
+
+
+                <ul>{data?.listEasterEggs?.map((element, index) => {
             return <li key={index}>
-                      <Link to={`/${user}/${element?.id}`}>
-                        {element?.id}
+                      <Link to={`/1f373/${fromIdToUrl(element?.id)}`}>
+                        {fromIdToUrl(element?.id)}
                       </Link>
                    </li>
         })}</ul>
+        </Fragment>
     } else {
         return <h1>Loading...</h1>
     }

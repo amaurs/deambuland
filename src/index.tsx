@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 Amplify.configure(awsconfig);
 Auth.configure(awsconfig);

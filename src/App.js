@@ -17,9 +17,9 @@ function App() {
     <Router>
         <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/:user/create" element={<Create />} />
-            <Route path="/:user" element={<User />} />
-            <Route path="/:user/:easterEgg" element={<Post />} />
+            <Route path="/post/create" element={<Create />} />
+            <Route path="/posts" element={<User />} />
+            <Route path="/1f373/:easterEgg" element={<Post />} />
         </Routes>
     </Router>
   );

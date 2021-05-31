@@ -3,6 +3,7 @@ import { API, graphqlOperation } from 'aws-amplify'
 import { GetEasterEggByIdQuery } from './API'
 import { getEasterEggById } from './graphql/queries'
 import { useParams } from 'react-router-dom'
+import { fromUrlToId } from './util'
 
 export default function Post(props: any) {
 
@@ -11,8 +12,8 @@ export default function Post(props: any) {
 
     useEffect(() => {
         async function fetchEasterEggs(){
-            const response = (await API.graphql(graphqlOperation(getEasterEggById, { easterEggId: easterEgg,
-                                                                                      authorId: user }))) as { data: GetEasterEggByIdQuery; };
+            const response = (await API.graphql(graphqlOperation(getEasterEggById, { easterEggId: fromUrlToId(easterEgg),
+                                                                                     authorId: user }))) as { data: GetEasterEggByIdQuery; };
             console.log("YYYYYY");
             console.log(response.data);
 

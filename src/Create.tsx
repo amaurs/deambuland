@@ -4,6 +4,9 @@ import { CreateEasterEggMutation, CreateEasterEggMutationVariables, EasterEggInp
 import { createEasterEgg } from './graphql/mutations'
 import { useParams, useNavigate } from 'react-router-dom'
 import { withAuthenticator } from '@aws-amplify/ui-react'
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 interface State {
     name: string;
@@ -24,12 +27,11 @@ function Create(props: any) {
     async function create(easterEggName: State){
 
 
-        let item: EasterEggInput = {id: `${Date.now()}`,
-                                    name: easterEggName.name,
-                                    authorId: user,
+        let item: EasterEggInput = {name: easterEggName.name,
                                     description: easterEggName.description,
                                     latitude: easterEggName.latitude,
-                                    longitude: easterEggName.longitude}
+                                    longitude: easterEggName.longitude,
+                                    imageUrl: "image.jpg"}
 
        const response =
        (await API.graphql(graphqlOperation(createEasterEgg, { easterEgg: item }))) ;
@@ -53,26 +55,16 @@ function Create(props: any) {
         navigate(`/${user}`);
     }
 
-    return (<form onSubmit={handleSubmit}>
-            <label>
-            Easter Egg Id:
-            </label>
-            <input type="text" name="name" onChange={handleChange}  />
-            <label>
-            Latitude:
-            </label>
-            <input type="text" name="latitude" onChange={handleChange}  />
-            <label>
-            Longitude:
-            </label>
-            <input type="text" name="longitude" onChange={handleChange}  />
-
-            <label>
-            Description:
-            </label>
-            <textarea name="description" onChange={handleChange} />
-            <input type="submit" value="Submit" />
-            </form>)
+    return (<Jumbotron>
+  <h1>Hello, world!</h1>
+  <p>
+    This is a simple hero unit, a simple jumbotron-style component for calling
+    extra attention to featured content or information.
+  </p>
+  <p>
+    <Button variant="primary">Learn more</Button>
+  </p>
+</Jumbotron>)
 
 }
 
